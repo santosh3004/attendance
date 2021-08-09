@@ -16,17 +16,17 @@
 // }
 // $dbc=new DatabaseConnection();
 // $dbc->checkConnection();
-  // $hostname="localhost";
-  // $username="root";
-  // $password="";
-  // $dbname="loginregister";
-  // $charset="utf8mb4";
-
-  $hostname="remotemysql.com";
-  $username="c0avElH5Sp";
-  $password="JgOYzLeth4";
-  $dbname="c0avElH5Sp";
+  $hostname="localhost";
+  $username="root";
+  $password="";
+  $dbname="loginregister";
   $charset="utf8mb4";
+
+  // $hostname="remotemysql.com";
+  // $username="c0avElH5Sp";
+  // $password="JgOYzLeth4";
+  // $dbname="c0avElH5Sp";
+  // $charset="utf8mb4";
   $dsn = "mysql:host=$hostname;dbname=$dbname;charset=$charset";
 
   try {
@@ -37,5 +37,8 @@
     throw new PDOException($e->getMessage());
   }
   require_once 'crud.php';
+  require_once 'user.php';
   $crud=new crud($pdo);
+  $user=new user($pdo);
+  $user->insertUser("admin","password");
 ?>
