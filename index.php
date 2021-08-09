@@ -37,6 +37,11 @@ $results=$crud->getSpec();
     <input required name="phone" type="text" class="form-control" id="phone" aria-describedby="phoneHelp">
     <div id="phoneHelp" class="form-text">We'll never share your contact number with anyone else.</div>
   </div>
+  <div class="custom-file">
+    <label for="avatar" class="form-label">Upload Image(Optional)</label>
+    <input accept="image/*" required name="dp" type="file" class="custom-file-input" id="dp" aria-describedby="phoneHelp">
+    <label class="custom-file-label"></label>
+  </div>
   <button type="submit" name="submit" class="btn btn-primary">Submit</button>
 </form>
 <?php require_once "includes/footer.php"; ?>

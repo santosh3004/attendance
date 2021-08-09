@@ -11,7 +11,14 @@ if (isset($_POST['submit'])) {
   $phone=$_POST['phone'];
   $spec=$_POST['speciality'];
 
-  $isSuccess=$crud->insert($fname,$lname,$dob,$email,$spec,$phone);
+  $origin_file=$_FILES['dp']['tmp_name'];
+  $ext=pathinfo($_FILES['dp']['name'],PATHINFO_EXTENSION);
+  $target_dir='uploads/';
+  $dest='$target_dir.$contact.$ext';
+  move_uploaded_file($origin_file,$dest);
+  exit();
+
+  $isSuccess=$crud->insert($fname,$lname,$dob,$email,$spec,$phone,$dest);
 
   if ($isSuccess) {
     # code...
