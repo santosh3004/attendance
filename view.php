@@ -12,7 +12,7 @@ if(!isset($_GET['id'])){
   $results=$crud->getAttendeeDetails($id);
 ?>
 
-
+<img src="<?php echo empty($results['avatar_path'])?'uploads/blank.png':$results['avatar_path']?>" style="width:200pxpx;height:200px" class="rounded-circle"/>
 <div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title"><?php echo $results['firstname'] . ' ' . $results['lastname'];
@@ -33,8 +33,5 @@ if(!isset($_GET['id'])){
         <a href="edit.php?id=<?php echo $results['attendee_id']; ?>" class="btn btn-warning">Edit</a>
         <a onclick="return confirm('Sure want to delete the record?')" href="delete.php?id=<?php echo $results['attendee_id']; ?>" class="btn btn-danger">Delete</a>
 <?php }?>
-
-
-
 
 <?php require_once "includes/footer.php"; ?>

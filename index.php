@@ -6,7 +6,7 @@ $results=$crud->getSpec();
 ?>
 <h1 class="text-center">Registration for IT Conference</h1>
 
-<form method="post" action="success.php">
+<form method="post" action="success.php" enctype="multipart/form-data">
   <div class="mb-3">
     <label for="firstname" class="form-label">First Name</label>
     <input required name="firstname" type="text" class="form-control" id="firstname" placeholder="Enter your First Name">
@@ -38,9 +38,8 @@ $results=$crud->getSpec();
     <div id="phoneHelp" class="form-text">We'll never share your contact number with anyone else.</div>
   </div>
   <div class="custom-file">
-    <label for="avatar" class="form-label">Upload Image(Optional)</label>
-    <input accept="image/*" required name="dp" type="file" class="custom-file-input" id="dp" aria-describedby="phoneHelp">
-    <label class="custom-file-label"></label>
+    <input name="avatar" type="file" accept="image/*"   class="form-control custom-file-input" id="avatar">
+    <label class="custom-file-label" for="avatar">Choose File</label>
   </div>
   <button type="submit" name="submit" class="btn btn-primary">Submit</button>
 </form>

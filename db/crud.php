@@ -15,7 +15,7 @@
         $stm->bindparam(':email',$email);
         $stm->bindparam(':contact',$num);
         $stm->bindparam(':spec',$spec);
-        $stm->bindparam(':desti',$$dest);
+        $stm->bindparam(':desti',$dest);
 
         $stm->execute();
         return true;

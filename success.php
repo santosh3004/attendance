@@ -10,17 +10,18 @@ if (isset($_POST['submit'])) {
   $dob=$_POST['dob'];
   $phone=$_POST['phone'];
   $spec=$_POST['speciality'];
-
-  $origin_file=$_FILES['dp']['tmp_name'];
-  $ext=pathinfo($_FILES['dp']['name'],PATHINFO_EXTENSION);
+  
+  
+  $origin_file = $_FILES['avatar']['tmp_name'];
+  $ext=pathinfo($_FILES['avatar']['name'],PATHINFO_EXTENSION);
   $target_dir='uploads/';
-  $dest='$target_dir.$contact.$ext';
+  $dest=$target_dir.$phone.$ext;
   move_uploaded_file($origin_file,$dest);
-  exit();
+  
 
   $isSuccess=$crud->insert($fname,$lname,$dob,$email,$spec,$phone,$dest);
 
-  if ($isSuccess) {
+  if (!$isSuccess) {
     # code...
   include 'includes/error.php';
     
@@ -50,6 +51,7 @@ if (isset($_POST['submit'])) {
     <a href="#" class="card-link">Another link</a>
   </div>
 </div> -->
+<img src="<?php echo $dest?>" style="width: 200px;px;height: 200px;" class="rounded-circle"/>
 <div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title"><?php echo $_POST['firstname'] . ' ' . $_POST['lastname'];
